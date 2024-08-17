@@ -22,6 +22,20 @@ app.post('/notes', (req, res) => {
 
 });
 
+app.delete('/notes/:id', (req, res) => {
+     let tempdb = db.filter(note => {
+        if(note.id != req.params.id){
+            return note
+        }
+    })
+     console.log(tempdb)
+    db = tempdb
+    fs.writeFileSync("./db/db.json", JSON.stringify(db), function (err) {
+        if (err) throw err;
+    })
+    res.json(db)
+
+});
 
 
 module.exports = app

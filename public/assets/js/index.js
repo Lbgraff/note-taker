@@ -19,8 +19,8 @@ if (window.location.pathname === '/notes') {
   clearBtn = document.querySelector('.clear-btn');
   noteList = document.querySelectorAll('.list-container .list-group');
   saveModal = document.getElementById('save-modal');
-  closeSaveModalSpan = document.getElementsByClassName('close-save-modal')[0];
-  confirmSaveModalSpan = document.getElementsByClassName('confirm-save')[0];
+  closeSaveModalSpan = document.getElementsByClassName('cancel-save-modal')[0];
+  confirmSaveModalSpan = document.getElementsByClassName('confirm-save-modal')[0];
 }
 
 // Show an element

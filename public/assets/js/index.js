@@ -5,8 +5,8 @@ let saveNoteBtn;
 let newNoteBtn;
 let noteList;
 let saveModal;
-let saveSpan;
-let confirmSaveBtn;
+let closeSaveModalSpan;
+let confirmSaveModalSpan;
 
 // Get the modal
 
@@ -19,8 +19,8 @@ if (window.location.pathname === '/notes') {
   clearBtn = document.querySelector('.clear-btn');
   noteList = document.querySelectorAll('.list-container .list-group');
   saveModal = document.getElementById('save-modal');
-  saveSpan = document.getElementsByClassName('close-save-modal')[0];
-  confirmSaveBtn = document.getElementsByClassName('confirm-save')[0];
+  closeSaveModalSpan = document.getElementsByClassName('close-save-modal')[0];
+  confirmSaveModalSpan = document.getElementsByClassName('confirm-save')[0];
 }
 
 // Show an element
@@ -84,7 +84,7 @@ const handleSaveModal = () => {
   saveModal.style.display = "block";
 }
 
-const handleSaveSpan = () => {
+const handleCloseSaveModalSpan = () => {
   saveModal.style.display = "none";
 }
 
@@ -201,8 +201,9 @@ const renderNoteList = async (notes) => {
 const getAndRenderNotes = () => getNotes().then(renderNoteList);
 
 if (window.location.pathname === '/notes') {
-  saveNoteBtn.addEventListener('click', saveModal);
-  confirmSaveBtn.addEventListener('click', handleNoteSave);
+  saveNoteBtn.addEventListener('click', handleSaveModal);
+  confirmSaveModalSpan.addEventListener('click', handleNoteSave);
+  closeSaveModalSpan.addEventListener('click', handleCloseSaveModalSpan);
   saveSpan.addEventListener('click', handleSaveSpan);
   newNoteBtn.addEventListener('click', handleNewNoteView);
   clearBtn.addEventListener('click', renderActiveNote);

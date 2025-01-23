@@ -20,7 +20,7 @@ if (window.location.pathname === '/notes') {
   noteList = document.querySelectorAll('.list-container .list-group');
   saveModal = document.querySelector('.save-modal');
   closeSaveModalSpan = document.querySelector('.cancel-save-modal');
-  confirmSaveModalSpan = document.querySelector('.confirm-save-modal');
+  confirmSaveModalSpan = document.querySelector('.confirm-save-modal')[0];
 }
 
 // Show an element
@@ -204,7 +204,6 @@ if (window.location.pathname === '/notes') {
   saveNoteBtn.addEventListener('click', handleSaveModal);
   confirmSaveModalSpan.addEventListener('click', handleNoteSave);
   closeSaveModalSpan.addEventListener('click', handleCloseSaveModalSpan);
-  saveSpan.addEventListener('click', handleSaveSpan);
   newNoteBtn.addEventListener('click', handleNewNoteView);
   clearBtn.addEventListener('click', renderActiveNote);
   noteForm.addEventListener('input', handleRenderBtns);
